@@ -34,6 +34,26 @@
   border-left: 1px solid #ccc;
   justify-content: space-between;
 }
+.box-conversation{
+  height: calc(100% - 170px);
+  width: 100%;
+  flex-direction: column;
+}
+.sent,.recived{
+  height: 50px;
+  margin: 20px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+.sent{
+  background-color: #D7F9BD;
+  align-self: flex-end;
+}
+.recived{
+  background-color: #fff;
+  align-self: flex-start;
+}
 .box-bottom{
   width: 100%;
   height: 70px;

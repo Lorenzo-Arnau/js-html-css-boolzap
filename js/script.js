@@ -4,6 +4,7 @@ var app = new Vue({
    selected : 'Michele',
    selectedPic :'_1',
    lastAccess :'10/01/2020 16:15:22',
+   currentIndex:0,
    contacts: [
           {
           name: 'Michele',
@@ -96,6 +97,7 @@ var app = new Vue({
     selectedUser : function(i) {
       var lastMessage = i.messages[i.messages.length - 1].date;
       this.selected = i.name;
+      this.currentIndex = this.contacts.indexOf(i);
       this.selectedPic = i.avatar;
       this.lastAccess = lastMessage;
     },

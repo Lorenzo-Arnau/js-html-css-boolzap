@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zxx" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boolzapp web</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div class="wrapper flex">
+      <div id="root" class="container-app flex">
+        <div class="sidebar">
+          <div class="profile-box flex">
+            <div class="profile-misc flex"><img src="img/avatar_io.jpg" alt="">Nome Utente</div>
+            <div class="profile-tools flex">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <div class="notify-box flex">
+            <div class="notify-ico flex">
+              <i class="fas fa-bell-slash"></i>
+            </div>
+            <div class="notify-content flex">
+              Ricevi notifiche di nuovi messaggi
+              <a href="#">Attiva Notifiche desktop</a>
+            </div>
+          </div>
+          <div class="search-box flex">
+            <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+          </div>
+          <div class="contact-box">
+            <div v-for="(i,index) in contacts" class="user flex">
+              <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
+              <span>{{contacts[index].name}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="main-content flex">
+          <div class="box-top flex">
+            <div class="current-user">
+              photo nome ultimo accesso
+            </div>
+            <div class="current-tools">
+              3tools
+            </div>
+          </div>
+          <div class="box-bottom">
+            emoticon <input type="text" name="" value=""> microphone
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>

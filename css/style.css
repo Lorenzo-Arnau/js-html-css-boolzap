@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* utility class */
+.flex{
+  display: flex;
+}
+/* utility class */
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(360deg, #DBDBD3 80%, #009788 20%);
+  align-items: center;
+  justify-content: center;
+}
+.container-app{
+  min-width: 950px;
+  width: 80%;
+  height: 95%;
+  background-color: red;
+  border: 1px solid #000;
+}
+.sidebar{
+  width: 35%;
+  height: 100%;
+  background-color: blue;
+  border: 1px solid #000;
+  flex-direction: column;
+}
+.main-content{
+  width: 65%;
+  height: 100%;
+  background-color: violet;
+  border: 1px solid #000;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box-bottom{
+  width: 100%;
+  height: 100px;
+  background-color: orange;
+  border: 1px solid #000;
+}
+.profile-box,.notify-box{
+  min-height: 100px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #000;
+  font-size: 20px;
+}
+.profile-box{
+ background-color:#EAEAEA;
+}
+.notify-box{
+ background-color: #8EDAFC;
+}
+.notify-content{
+  flex-direction: column;
+  width: 70%;
+  justify-content: center;
+}
+.notify-content a{
+  color: #B1B1B1;
+}
+.notify-box i{
+ font-size: 30px;
+ margin:0 40px;
+ background-color: #fff;
+ padding: 20px;
+ color: #8EDAFC;
+ border-radius: 50%;
+}
+.notify-ico{
+ justify-content: center;
+ align-items: center;
+ width: 30%;
+}
+.search-box{
+  height: 50px;
+  width: 100%;
+  border: 1px solid #000;
+  align-items: center;
+  justify-content: center;
+}
+.contact-box{
+  height: calc(100% - 250px);
+  overflow-y: auto;
+  width: 100%;
+  border: 1px solid #000;
+}
+.profile-misc,.profile-tools{
+  height: 100px;
+  width: 60%;
+  align-items: center;
+}
+.profile-tools{
+  justify-content: space-around;
+  width: 30%;
+  font-size: 25px;
+  color: #B1B1B1;
+}
+.profile-misc img,.user img{
+  height: 80px;
+  border-radius: 50%;
+  margin: 0px 10px;
+}
+.user{
+  height: 120px;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  align-items: center;
+}
+.box-top{
+  width: 100%;
+  height: 100px;
+  background-color: green;
+  border: 1px solid #000;
+  justify-content: space-between;
+}
+.current-user,.current-tools{
+  height: 100px;
+  width: 35%;
+  background-color: red;
+}
+.search-bar{
+  width: 98%;
+  height: 90%;
+}

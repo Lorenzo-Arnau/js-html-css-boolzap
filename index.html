@@ -12,7 +12,9 @@
   <body>
     <div class="wrapper flex">
       <div id="root" class="container-app flex">
+        <!-- sidebar section -->
         <div class="sidebar">
+          <!-- profile section -->
           <div class="profile-box flex">
             <div class="profile-misc flex"><img src="img/avatar_io.jpg" alt="">Nome Utente</div>
             <div class="profile-tools flex">
@@ -21,6 +23,9 @@
             <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
+          <!-- profile section -->
+
+          <!-- notify section -->
           <div class="notify-box flex">
             <div class="notify-ico flex">
               <i class="fas fa-bell-slash"></i>
@@ -30,23 +35,33 @@
               <a href="#">Attiva Notifiche desktop</a>
             </div>
           </div>
+          <!-- notify section -->
+
+          <!-- search section -->
           <div class="search-box flex">
-            <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
           </div>
+          <!-- search section -->
+          <!-- contact section -->
           <div class="contact-box">
             <div v-for="(i,index) in contacts" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <span>{{contacts[index].name}}</span>
             </div>
           </div>
+          <!-- contact section -->
         </div>
+        <!-- sidebar section -->
+
+        <!-- main section -->
         <div class="main-content flex">
+          <!-- top-bar section -->
           <div class="box-top flex">
             <div class="current-user flex">
                 <img v-bind:src="'img/avatar' + selectedPic  + '.jpg'" />
                 <div class="current-content flex">
                   <span>{{selected}}</span> <br>
-                  <span>Ultimo accesso oggi alle</span>
+                  <span>Ultimo accesso {{lastAccess}}</span>
                 </div>
             </div>
             <div class="current-tools flex">
@@ -55,6 +70,9 @@
               <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
+          <!-- top-bar section -->
+
+          <!-- conversations section -->
           <div class="box-conversation flex">
             <div class="sent flex">
               {{contacts[0].messages[0].text}}
@@ -63,13 +81,17 @@
               {{contacts[0].messages[2].text}}
             </div>
           </div>
+          <!-- conversations section -->
+
+          <!-- box bottom section -->
           <div class="box-bottom flex">
             <i class="far fa-smile"></i>
             <input type="text" name="" value="">
             <i class="fas fa-microphone"></i>
           </div>
+            <!-- box bottom section -->
         </div>
-
+          <!-- main section -->
       </div>
     </div>
   <script src="js/script.js" charset="utf-8"></script>

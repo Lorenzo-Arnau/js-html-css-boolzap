@@ -3,6 +3,7 @@ var app = new Vue({
  data:{
    selected : 'Michele',
    selectedPic :'_1',
+   lastAccess :'10/01/2020 16:15:22',
    contacts: [
           {
           name: 'Michele',
@@ -93,8 +94,10 @@ var app = new Vue({
  },
  methods:{
     selectedUser : function(i) {
+      var lastMessage = i.messages[i.messages.length - 1].date;
       this.selected = i.name;
       this.selectedPic = i.avatar;
+      this.lastAccess = lastMessage;
     },
 
  },

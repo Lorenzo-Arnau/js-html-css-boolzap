@@ -196,7 +196,7 @@
 /*END contenuto topbar-main */
 
 /* Contenuto conversation */
-.sent,.recived{
+.sent,.received{
   height: 50px;
   margin: 20px;
   align-items: center;
@@ -207,7 +207,7 @@
   background-color: #D7F9BD;
   align-self: flex-end;
 }
-.recived{
+.received{
   background-color: #fff;
   align-self: flex-start;
 }

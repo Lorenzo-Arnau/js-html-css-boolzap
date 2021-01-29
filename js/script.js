@@ -1,6 +1,8 @@
 var app = new Vue({
  el: '#root',
  data:{
+   selected : 'Michele',
+   selectedPic :'_1',
    contacts: [
           {
           name: 'Michele',
@@ -87,10 +89,13 @@ var app = new Vue({
           },
           ]
 
-          
+
  },
  methods:{
-
+    selectedUser : function(i) {
+      this.selected = i.name;
+      this.selectedPic = i.avatar;
+    },
 
  },
 });

@@ -9,6 +9,7 @@
 }
 /* utility class */
 .wrapper{
+  min-width: 950px;
   width: 100vw;
   height: 100vh;
   background: linear-gradient(360deg, #DBDBD3 80%, #009788 20%);
@@ -19,36 +20,41 @@
   min-width: 950px;
   width: 80%;
   height: 95%;
-  background-color: red;
-  border: 1px solid #000;
 }
 .sidebar{
   width: 35%;
   height: 100%;
-  background-color: blue;
-  border: 1px solid #000;
   flex-direction: column;
 }
 .main-content{
   width: 65%;
   height: 100%;
-  background-color: violet;
-  border: 1px solid #000;
+  background-image: url('../img/mine.jpg');
   flex-direction: column;
+  border-left: 1px solid #ccc;
   justify-content: space-between;
 }
 .box-bottom{
   width: 100%;
-  height: 100px;
-  background-color: orange;
-  border: 1px solid #000;
+  height: 70px;
+  background-color:#EAEAEA;
+  font-size: 25px;
+  justify-content: space-around;
+  align-items: center;
+}
+.box-bottom input{
+  width: 80%;
+  height: 70%;
+}
+.box-bottom i{
+  margin: 0 20px;
+  color: #6B7278;
 }
 .profile-box,.notify-box{
   min-height: 100px;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid #000;
   font-size: 20px;
 }
 .profile-box{
@@ -57,19 +63,22 @@
 .notify-box{
  background-color: #8EDAFC;
 }
-.notify-content{
+.notify-content,.current-content{
   flex-direction: column;
   width: 70%;
   justify-content: center;
 }
-.notify-content a{
+.current-content span:last-child{
   color: #B1B1B1;
+}
+.notify-content a{
+  color: #487884;
 }
 .notify-box i{
  font-size: 30px;
  margin:0 40px;
  background-color: #fff;
- padding: 20px;
+ padding: 20px 15px;
  color: #8EDAFC;
  border-radius: 50%;
 }
@@ -81,15 +90,15 @@
 .search-box{
   height: 50px;
   width: 100%;
-  border: 1px solid #000;
   align-items: center;
+  background-color:#EAEAEA;
   justify-content: center;
 }
 .contact-box{
   height: calc(100% - 250px);
   overflow-y: auto;
   width: 100%;
-  border: 1px solid #000;
+  background-color:#fff;
 }
 .profile-misc,.profile-tools{
   height: 100px;
@@ -102,7 +111,10 @@
   font-size: 25px;
   color: #B1B1B1;
 }
-.profile-misc img,.user img{
+.profile-tools i{
+cursor: pointer;
+}
+.profile-misc img,.user img,.current-user img{
   height: 80px;
   border-radius: 50%;
   margin: 0px 10px;
@@ -113,20 +125,30 @@
   background-color: #fff;
   border-top: 1px solid #ccc;
   align-items: center;
+  cursor: pointer;
+}
+.user:hover{
+  background-color: #ccc;
 }
 .box-top{
   width: 100%;
   height: 100px;
-  background-color: green;
-  border: 1px solid #000;
+  background-color:#EAEAEA;
   justify-content: space-between;
 }
 .current-user,.current-tools{
   height: 100px;
-  width: 35%;
-  background-color: red;
+  width: 75%;
+  align-items: center;
+}
+.current-tools{
+    width: 20%;
+    font-size: 25px;
+    color: #B1B1B1;
+    justify-content: space-around;
 }
 .search-bar{
   width: 98%;
   height: 90%;
+  border: none;
 }

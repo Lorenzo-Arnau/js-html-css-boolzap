@@ -32,7 +32,7 @@
             <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
           </div>
           <div class="contact-box">
-            <div v-for="(i,index) in contacts" class="user flex">
+            <div v-for="(i,index) in contacts" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <span>{{contacts[index].name}}</span>
             </div>
@@ -40,15 +40,23 @@
         </div>
         <div class="main-content flex">
           <div class="box-top flex">
-            <div class="current-user">
-              photo nome ultimo accesso
+            <div class="current-user flex">
+                <img v-bind:src="'img/avatar' + selectedPic  + '.jpg'" />
+                <div class="current-content flex">
+                  <span>{{selected}}</span> <br>
+                  <span>Ultimo accesso oggi alle</span>
+                </div>
             </div>
-            <div class="current-tools">
-              3tools
+            <div class="current-tools flex">
+              <i class="fas fa-search"></i>
+              <i class="fas fa-paperclip"></i>
+              <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
-          <div class="box-bottom">
-            emoticon <input type="text" name="" value=""> microphone
+          <div class="box-bottom flex">
+            <i class="far fa-smile"></i>
+            <input type="text" name="" value="">
+            <i class="fas fa-microphone"></i>
           </div>
         </div>
 

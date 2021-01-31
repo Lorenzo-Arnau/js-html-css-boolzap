@@ -119,6 +119,9 @@
   align-items: center;
   width: 30%;
 }
+a{
+  cursor: pointer;
+}
 /*END Sezione Notifiche */
 
 /* Sezione Ricerca */
@@ -199,7 +202,7 @@
 .sent,.received{
   height: 50px;
   margin: 20px;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px;
   border-radius: 10px;
 }
@@ -210,6 +213,17 @@
 .received{
   background-color: #fff;
   align-self: flex-start;
+}
+.messageHour{
+  color: #B1B1B1;
+  margin-top: 20px;
+}
+.usersBox{
+  flex-direction: column;
+}
+.usersBox span:last-child{
+  color: #B1B1B1;
+  font-size: 16px;
 }
 /*END Contenuto conversation */
 

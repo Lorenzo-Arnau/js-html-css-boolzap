@@ -1,10 +1,17 @@
+var todayTime = new Date();
+var hour = todayTime.toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
+   notify : false,
+   notifyStatus:'Attiva',
+   sentTime: hour,
    selected : 'Michele',
    selectedPic :'_1',
-   lastAccess :'10/01/2020 16:15:22',
+   lastAccessDate :'10/01/2020',
+   lastAccessTime:'16:15',
    currentIndex:0,
+   newMessage:'',
    contacts: [
           {
           name: 'Michele',
@@ -96,12 +103,41 @@ var app = new Vue({
  methods:{
     selectedUser : function(i) {
       var lastMessage = i.messages[i.messages.length - 1].date;
+      var dateTimeArray =lastMessage.split(' ');
+      var createdDate = dateTimeArray[1].split(':',2);
       this.selected = i.name;
       this.currentIndex = this.contacts.indexOf(i);
       this.selectedPic = i.avatar;
-      this.lastAccess = lastMessage;
+      this.lastAccessDate = dateTimeArray[0];
+      this.lastAccessTime = createdDate[0] +':'+ createdDate[1];
     },
-
+    addMessage : function() {
+      this.contacts[this.currentIndex].messages = this.contacts[this.currentIndex].messages.concat(
+      {
+        date: this.sentTime,
+        text: this.newMessage,
+        status: 'sent'
+      })
+      console.log(this.sentTime);
+      this.newMessage = '';
+    },
+    createDate : function(currentIndex,idx){
+        var createdDate = this.contacts[currentIndex].messages[idx].date.split(' ')[1].split(':',2);
+        return createdDate[0] +':'+ createdDate[1];
+    },
+    lastMessage : function(index){
+      return  this.contacts[index].messages[this.contacts[index].messages.length - 1].text;
+    },
+    changeNotify : function(){
+      if (this.notify === false) {
+        this.notify = true;
+        this.notifyStatus='Disattiva';
+      }else {
+        this.notify = false;
+        this.notifyStatus='Attiva';
+      }
+      return this.notify
+    },
  },
 });
 

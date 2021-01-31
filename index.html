@@ -28,11 +28,12 @@
           <!-- notify section -->
           <div class="notify-box flex">
             <div class="notify-ico flex">
-              <i class="fas fa-bell-slash"></i>
+              <i v-if="notify == false" class="fas fa-bell-slash"></i>
+              <i v-if="notify == true" class="fas fa-bell"></i>
             </div>
             <div class="notify-content flex">
               Ricevi notifiche di nuovi messaggi
-              <a href="#">Attiva Notifiche desktop</a>
+              <a  @click="changeNotify()">{{notifyStatus}} Notifiche desktop</a>
             </div>
           </div>
           <!-- notify section -->
@@ -46,7 +47,10 @@
           <div class="contact-box">
             <div v-for="(i,index) in contacts" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
-              <span>{{contacts[index].name}}</span>
+              <div class="flex usersBox">
+                <span>{{contacts[index].name}}</span>
+                <span>{{lastMessage(index)}}</span>
+              </div>
             </div>
           </div>
           <!-- contact section -->
@@ -61,7 +65,7 @@
                 <img v-bind:src="'img/avatar' + selectedPic  + '.jpg'" />
                 <div class="current-content flex">
                   <span>{{selected}}</span> <br>
-                  <span>Ultimo accesso {{lastAccess}}</span>
+                  <span>Ultimo accesso il {{lastAccessDate}} alle ore {{lastAccessTime}}</span>
                 </div>
             </div>
             <div class="current-tools flex">
@@ -75,7 +79,8 @@
           <!-- conversations section -->
           <div class="box-conversation flex">
             <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ contacts[currentIndex].messages[idx].status">
-              {{contacts[currentIndex].messages[idx].text}}
+              {{contacts[currentIndex].messages[idx].text}} <br>
+              <div class="messageHour">{{createDate(currentIndex,idx)}}</div>
             </div>
           </div>
           <!-- conversations section -->
@@ -83,7 +88,7 @@
           <!-- box bottom section -->
           <div class="box-bottom flex">
             <i class="far fa-smile"></i>
-            <input type="text" name="" value="">
+            <input v-model="newMessage" type="text" name="" value="" v-on:keyup.13="addMessage()">
             <i class="fas fa-microphone"></i>
           </div>
             <!-- box bottom section -->

@@ -122,7 +122,12 @@ var app = new Vue({
       this.newMessage = '';
     },
     receivedMessage : function(){
-      setTimeout(this.addMessage('ok','received'), 1500)
+      let that = this;
+      var lastTimeChange = this.sentTime.split(' ')[1].split(':',2);
+      setTimeout(function() {
+        that.addMessage('ok','received')
+        that.lastAccessTime = lastTimeChange[0] +':'+ lastTimeChange[1];
+      }, 1500);
     },
     createDate : function(currentIndex,idx){
         var createdDate = this.contacts[currentIndex].messages[idx].date.split(' ')[1].split(':',2);

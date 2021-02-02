@@ -147,9 +147,7 @@ var app = new Vue({
       }
       return this.notify
     },
-    search : function(){
-      console.log(this.searchResult);
-    },
+  
  },
 });
 

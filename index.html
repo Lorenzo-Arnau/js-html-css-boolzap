@@ -40,19 +40,19 @@
 
           <!-- search section -->
           <div class="search-box flex">
-            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat" v-on:keyup.13="search()" v-model="searchResult">
+            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat" v-model="searchResult">
           </div>
           <!-- search section -->
           <!-- contact section -->
           <div class="contact-box">
-            <div v-for="(i,index) in contacts" v-if="searchResult == ''" class="user flex" @click="selectedUser(i)">
+            <div v-for="(i,index) in contacts" v-if="searchResult == '' " class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
                 <span>{{lastMessage(index)}}</span>
               </div>
             </div>
-            <div v-for="(i,index) in contacts" v-if="i.name == searchResult" class="user flex" @click="selectedUser(i)">
+            <div v-for="(i,index) in contacts" v-if="i.name.toLowerCase() == searchResult.toLowerCase()" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>

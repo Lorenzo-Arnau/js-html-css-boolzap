@@ -3,6 +3,7 @@ var hour = todayTime.toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
+   lastMessageRead: '',
    searchResult: '',
    notify : false,
    notifyStatus:'Attiva',
@@ -119,6 +120,8 @@ var app = new Vue({
         text: message,
         status: status,
       })
+      this.lastMessageRead = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].text;
+      console.log(this.lastMessageRead);
       console.log(this.sentTime);
       this.newMessage = '';
     },
@@ -126,7 +129,19 @@ var app = new Vue({
       let that = this;
       var lastTimeChange = this.sentTime.split(' ')[1].split(':',2);
       setTimeout(function() {
-        that.addMessage('ok','received')
+        switch (that.lastMessageRead.toLowerCase()) {
+          case 'ciao':
+            that.addMessage('ciao a te!','received')
+            break;
+          case 'come stai?':
+            that.addMessage('alla grande! Devo scappare ci sentiamo dopo!','received')
+            break;
+          case 'easter egg':
+            that.addMessage('Lo hai trovato finalmente!','received')
+            break;
+          default:
+            that.addMessage('non posso risponderti adesso..ti scrivo dopo!','received')
+        }
         that.lastAccessTime = lastTimeChange[0] +':'+ lastTimeChange[1];
       }, 1500);
     },
@@ -147,7 +162,7 @@ var app = new Vue({
       }
       return this.notify
     },
-  
+
  },
 });
 

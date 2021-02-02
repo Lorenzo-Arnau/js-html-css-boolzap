@@ -3,6 +3,7 @@ var hour = todayTime.toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
+   searchResult: '',
    notify : false,
    notifyStatus:'Attiva',
    sentTime: hour,
@@ -145,6 +146,9 @@ var app = new Vue({
         this.notifyStatus='Attiva';
       }
       return this.notify
+    },
+    search : function(){
+      console.log(this.searchResult);
     },
  },
 });

@@ -40,7 +40,7 @@
 
           <!-- search section -->
           <div class="search-box flex">
-            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat" v-on:keyup.13="search()" v-model="searchResult">
           </div>
           <!-- search section -->
           <!-- contact section -->
@@ -88,7 +88,7 @@
           <!-- box bottom section -->
           <div class="box-bottom flex">
             <i class="far fa-smile"></i>
-            <input v-model="newMessage" type="text" name="" value="" v-on:keyup.13="addMessage(newMessage,'sent');receivedMessage();">
+            <input v-model="newMessage" type="text" name="" value="" v-on:keyup.13="addMessage(newMessage,'sent');receivedMessage();" placeholder="Scrivi un messaggio">
             <i class="fas fa-microphone"></i>
           </div>
             <!-- box bottom section -->

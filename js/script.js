@@ -119,6 +119,7 @@ var app = new Vue({
         status: status,
       })
       console.log(this.sentTime);
+      setTimeout(this.addMessage('ok','received'), 1500)
       this.newMessage = '';
     },
     createDate : function(currentIndex,idx){

@@ -45,7 +45,14 @@
           <!-- search section -->
           <!-- contact section -->
           <div class="contact-box">
-            <div v-for="(i,index) in contacts" class="user flex" @click="selectedUser(i)">
+            <div v-for="(i,index) in contacts" v-if="searchResult == ''" class="user flex" @click="selectedUser(i)">
+              <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
+              <div class="flex usersBox">
+                <span>{{contacts[index].name}}</span>
+                <span>{{lastMessage(index)}}</span>
+              </div>
+            </div>
+            <div v-for="(i,index) in contacts" v-if="i.name == searchResult" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>

@@ -119,8 +119,10 @@ var app = new Vue({
         status: status,
       })
       console.log(this.sentTime);
-      setTimeout(this.addMessage('ok','received'), 1500)
       this.newMessage = '';
+    },
+    receivedMessage : function(){
+      setTimeout(this.addMessage('ok','received'), 1500)
     },
     createDate : function(currentIndex,idx){
         var createdDate = this.contacts[currentIndex].messages[idx].date.split(' ')[1].split(':',2);

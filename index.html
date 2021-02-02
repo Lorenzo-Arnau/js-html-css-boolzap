@@ -88,7 +88,7 @@
           <!-- box bottom section -->
           <div class="box-bottom flex">
             <i class="far fa-smile"></i>
-            <input v-model="newMessage" type="text" name="" value="" v-on:keyup.13="addMessage()">
+            <input v-model="newMessage" type="text" name="" value="" v-on:keyup.13="addMessage(newMessage,'sent');setTimeout(addMessage('ok','received'), 1000);">
             <i class="fas fa-microphone"></i>
           </div>
             <!-- box bottom section -->

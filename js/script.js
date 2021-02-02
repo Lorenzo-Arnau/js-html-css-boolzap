@@ -111,12 +111,12 @@ var app = new Vue({
       this.lastAccessDate = dateTimeArray[0];
       this.lastAccessTime = createdDate[0] +':'+ createdDate[1];
     },
-    addMessage : function() {
+    addMessage : function(message,status) {
       this.contacts[this.currentIndex].messages = this.contacts[this.currentIndex].messages.concat(
       {
         date: this.sentTime,
-        text: this.newMessage,
-        status: 'sent'
+        text: message,
+        status: status,
       })
       console.log(this.sentTime);
       this.newMessage = '';

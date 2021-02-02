@@ -171,6 +171,14 @@ a{
 .user:hover{
   background-color: #ccc;
 }
+.usersBox{
+  flex-direction: column;
+  overflow: hidden;
+}
+.usersBox span:last-child{
+  color: #B1B1B1;
+  font-size: 16px;
+}
 /*END Sezione contatti */
 
 /*END Contenuto della sidebar */
@@ -217,13 +225,6 @@ a{
 .messageHour{
   color: #B1B1B1;
   margin-top: 20px;
-}
-.usersBox{
-  flex-direction: column;
-}
-.usersBox span:last-child{
-  color: #B1B1B1;
-  font-size: 16px;
 }
 /*END Contenuto conversation */
 

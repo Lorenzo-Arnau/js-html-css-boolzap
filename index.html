@@ -78,7 +78,7 @@
 
           <!-- conversations section -->
           <div class="box-conversation flex">
-            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ contacts[currentIndex].messages[idx].status">
+            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status">
               {{contacts[currentIndex].messages[idx].text}} <br>
               <div class="messageHour">{{createDate(currentIndex,idx)}}</div>
             </div>

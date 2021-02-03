@@ -50,7 +50,7 @@
             <div class="flex usersBox">
               <span>{{contacts[index].name}}</span>
               <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
-              <span>{{contacts[index].messages[contacts[index].messages.length - 1].date}}</span>
+              <span>{{lastAccess(index)}}</span>
             </div>
           </div>
           <div v-for="(i,index) in contacts" v-if="search(i)" class="user flex" @click="selectedUser(i)">
@@ -58,7 +58,7 @@
             <div class="flex usersBox">
               <span>{{contacts[index].name}}</span>
               <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
-              <span>{{contacts[index].messages[contacts[index].messages.length - 1].date}}</span>
+              <span>{{lastAccess(index)}}</span>
             </div>
           </div>
         </div>

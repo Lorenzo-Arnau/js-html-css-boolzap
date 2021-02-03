@@ -150,6 +150,10 @@ let app = new Vue({
         let thisText = this.contacts[index].messages[this.contacts[index].messages.length - 1];
         return thisText.text;
       },
+      lastAccess : function(index){
+        let thisMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].date.split(' ')[1].split(':',2);
+        return thisMessage[0] +':'+ thisMessage[1];
+      },
       changeNotify : function(){
         if (this.notify === false) {
           this.notify = true;
@@ -182,6 +186,7 @@ let app = new Vue({
         Vue.delete(messageList,idx);
         if (messageList.length <= 0) {
           this.lastMessageBool = false;
+          Vue.delete(this.contacts,currentIndex);
         }
       },
     },

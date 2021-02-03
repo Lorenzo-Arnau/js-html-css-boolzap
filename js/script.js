@@ -150,7 +150,8 @@ var app = new Vue({
         return createdDate[0] +':'+ createdDate[1];
     },
     lastMessage : function(index){
-      return  this.contacts[index].messages[this.contacts[index].messages.length - 1].text;
+      let thisText = this.contacts[index].messages[this.contacts[index].messages.length - 1];
+        return thisText.text;
     },
     changeNotify : function(){
       if (this.notify === false) {

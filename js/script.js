@@ -2,7 +2,6 @@ var todayTime = new Date().toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
-   popActive : 'active',
    popIndex : false,
    lastMessageRead: '',
    searchResult: '',
@@ -168,18 +167,18 @@ var app = new Vue({
        return true
      }
    },
-   popUp :function (index) {
+   popUpOpen :function (index) {
      this.popIndex = index;
-     console.log( this.popIndex);
    },
-   popUpClass: function(index) {
+   popUpClose : function() {
+      this.popIndex = false;
+   },
+   popUpVisibilityClass: function(index) {
      if(index === this.popIndex) {
-       return 'pop-up ' + this.popActive
+       return 'pop-up active'
      }
       return 'pop-up'
    },
-
  },
 });
-
 Vue.config.devtools = true;

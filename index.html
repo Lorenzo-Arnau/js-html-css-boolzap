@@ -87,11 +87,11 @@
 
           <!-- conversations section -->
           <div class="box-conversation flex">
-            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status" @click="popUp(idx)">
+            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status" @mouseover="popUpOpen(idx)" @mouseleave="popUpClose()" >
               {{contacts[currentIndex].messages[idx].text}} <br>
               <div class="messageHour">{{createDate(currentIndex,idx)}}</div>
               <div class="pop-up-container">
-                <div :class="popUpClass(idx)">
+                <div :class="popUpVisibilityClass(idx)">
                   <ul>
                     <li>Delete Message</li>
                     <li>Message Info</li>
@@ -113,6 +113,7 @@
           <!-- main section -->
       </div>
     </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

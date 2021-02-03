@@ -50,13 +50,15 @@
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
                 <span>{{lastMessage(index)}}</span>
+                <span>{{lastAccessTime}}</span>
               </div>
             </div>
-            <div v-for="(i,index) in contacts" v-if="i.name.toLowerCase().startsWith(searchResult.toLowerCase()) && searchResult != ''" class="user flex" @click="selectedUser(i)">
+            <div v-for="(i,index) in contacts" v-if="search(i)" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
                 <span>{{lastMessage(index)}}</span>
+                <span>{{lastAccessTime}}</span>
               </div>
             </div>
           </div>

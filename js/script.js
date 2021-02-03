@@ -162,7 +162,11 @@ var app = new Vue({
       }
       return this.notify
     },
-
+   search : function(index){
+     if ( index.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) && this.searchResult != '') {
+       return true
+     }
+   }
  },
 });
 

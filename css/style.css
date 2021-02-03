@@ -175,7 +175,7 @@ a{
   flex-direction: column;
   overflow: hidden;
 }
-.usersBox span:last-child{
+.usersBox span:nth-child(2),.usersBox span:nth-child(3){
   color: #B1B1B1;
   font-size: 16px;
 }

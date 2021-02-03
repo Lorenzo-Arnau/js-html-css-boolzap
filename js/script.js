@@ -131,7 +131,7 @@ var app = new Vue({
       setTimeout(function() {
         switch (that.lastMessageRead.toLowerCase()) {
           case 'ciao':
-            that.addMessage('ciao a te!','received')
+            that.addMessage('ciao a te simpatico utente!','received')
             break;
           case 'come stai?':
             that.addMessage('alla grande! Devo scappare ci sentiamo dopo!','received')

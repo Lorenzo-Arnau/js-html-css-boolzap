@@ -1,13 +1,14 @@
-var todayTime = new Date();
-var hour = todayTime.toLocaleString();
+var todayTime = new Date().toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
+   popActive : 'active',
+   popIndex : false,
    lastMessageRead: '',
    searchResult: '',
    notify : false,
    notifyStatus:'Attiva',
-   sentTime: hour,
+   sentTime: todayTime,
    selected : 'Michele',
    selectedPic :'_1',
    lastAccessDate :'10/01/2020',
@@ -166,7 +167,18 @@ var app = new Vue({
      if ( index.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) && this.searchResult != '') {
        return true
      }
-   }
+   },
+   popUp :function (index) {
+     this.popIndex = index;
+     console.log( this.popIndex);
+   },
+   popUpClass: function(index) {
+     if(index === this.popIndex) {
+       return 'pop-up ' + this.popActive
+     }
+      return 'pop-up'
+   },
+
  },
 });
 

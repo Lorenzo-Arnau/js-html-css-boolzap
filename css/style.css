@@ -218,15 +218,38 @@ a{
 .sent{
   background-color: #D7F9BD;
   align-self: flex-end;
+  margin-right: 100px;
 }
 .received{
   background-color: #fff;
   align-self: flex-start;
+  margin-left: 50px;
 }
 .messageHour{
   color: #B1B1B1;
   align-self: flex-end;
 }
+.pop-up-container{
+  position: relative;
+}
+
+.pop-up{
+  width: 150px;
+  box-shadow: 2px 2px 2px #000;
+  background-color: #fff;
+  position: absolute;
+  display: none;
+  left: 0px;
+}
+.active{
+  display: block;
+}
+.pop-up ul li{
+ list-style: none;
+ padding: 10px;
+ cursor: pointer;
+}
+
 /*END Contenuto conversation */
 
 /* Contenuto box bottom */

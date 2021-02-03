@@ -87,9 +87,17 @@
 
           <!-- conversations section -->
           <div class="box-conversation flex">
-            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status">
+            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status" @click="popUp(idx)">
               {{contacts[currentIndex].messages[idx].text}} <br>
               <div class="messageHour">{{createDate(currentIndex,idx)}}</div>
+              <div class="pop-up-container">
+                <div :class="popUpClass(idx)">
+                  <ul>
+                    <li>Delete Message</li>
+                    <li>Message Info</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <!-- conversations section -->

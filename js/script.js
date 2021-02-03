@@ -181,7 +181,13 @@ var app = new Vue({
    },
    deleteMessage:function(currentIndex,idx){
      var messageList = this.contacts[currentIndex].messages;
+<<<<<<< HEAD
      console.log(idx);
+=======
+     console.log(messageList);
+     console.log(idx);
+     console.log(this.lastMessageBool);
+>>>>>>> master
      Vue.delete(messageList,idx);
      if (messageList.length <= 0) {
        this.lastMessageBool = false;

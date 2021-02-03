@@ -93,7 +93,7 @@
               <div class="pop-up-container">
                 <div :class="popUpVisibilityClass(idx)">
                   <ul>
-                    <li>Delete Message</li>
+                    <li @click="deleteMessage(currentIndex,idx)">Delete Message</li>
                     <li>Message Info</li>
                   </ul>
                 </div>

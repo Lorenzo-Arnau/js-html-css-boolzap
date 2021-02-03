@@ -179,6 +179,11 @@ var app = new Vue({
      }
       return 'pop-up'
    },
+   deleteMessage:function(currentIndex,idx){
+     var messageList = this.contacts[currentIndex].messages;
+     console.log(messageList);
+     Vue.delete(messageList,idx);
+   },
  },
 });
 Vue.config.devtools = true;

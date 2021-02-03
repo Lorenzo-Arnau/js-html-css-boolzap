@@ -183,6 +183,7 @@ var app = new Vue({
      var messageList = this.contacts[currentIndex].messages;
      console.log(messageList);
      Vue.delete(messageList,idx);
+     console.log(idx);
    },
  },
 });

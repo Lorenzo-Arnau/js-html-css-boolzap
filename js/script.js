@@ -2,6 +2,7 @@ var todayTime = new Date().toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
+   lastMessageBool : true,
    popIndex : false,
    lastMessageRead: '',
    searchResult: '',
@@ -99,8 +100,6 @@ var app = new Vue({
           ],
           },
           ]
-
-
  },
  methods:{
     selectedUser : function(i) {
@@ -183,8 +182,12 @@ var app = new Vue({
    deleteMessage:function(currentIndex,idx){
      var messageList = this.contacts[currentIndex].messages;
      console.log(messageList);
-     Vue.delete(messageList,idx);
      console.log(idx);
+     console.log(this.lastMessageBool);
+     Vue.delete(messageList,idx);
+     if (messageList.length <= 0) {
+       this.lastMessageBool = false;
+     }
    },
  },
 });

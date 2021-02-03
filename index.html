@@ -49,7 +49,7 @@
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
-                <span>{{lastMessage(index)}}</span>
+                <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
                 <span>{{lastAccessTime}}</span>
               </div>
             </div>
@@ -57,7 +57,7 @@
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
-                <span>{{lastMessage(index)}}</span>
+                <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
                 <span>{{lastAccessTime}}</span>
               </div>
             </div>

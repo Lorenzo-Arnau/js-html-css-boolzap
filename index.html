@@ -40,23 +40,23 @@
 
           <!-- search section -->
           <div class="search-box flex">
-            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat" v-on:keyup.13="search()" v-model="searchResult">
+            <i class="fas fa-search"></i> <input class="search-bar" type="text" name="" value="" placeholder="Cerca o inizia una nuova chat" v-model="searchResult">
           </div>
           <!-- search section -->
           <!-- contact section -->
           <div class="contact-box">
-            <div v-for="(i,index) in contacts" v-if="searchResult == ''" class="user flex" @click="selectedUser(i)">
+            <div v-for="(i,index) in contacts" v-if="searchResult == '' " class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
-                <span>{{lastMessage(index)}}</span>
+                <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
               </div>
             </div>
-            <div v-for="(i,index) in contacts" v-if="i.name == searchResult" class="user flex" @click="selectedUser(i)">
+            <div v-for="(i,index) in contacts" v-if="search(i)" class="user flex" @click="selectedUser(i)">
               <img v-bind:src="'img/avatar' + contacts[index].avatar + '.jpg'" />
               <div class="flex usersBox">
                 <span>{{contacts[index].name}}</span>
-                <span>{{lastMessage(index)}}</span>
+                <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
               </div>
             </div>
           </div>
@@ -85,9 +85,17 @@
 
           <!-- conversations section -->
           <div class="box-conversation flex">
-            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status">
+            <div v-for="(element,idx) in contacts[currentIndex].messages" v-bind:class="'flex '+ element.status" @mouseover="popUpOpen(idx)" @mouseleave="popUpClose()" >
               {{contacts[currentIndex].messages[idx].text}} <br>
               <div class="messageHour">{{createDate(currentIndex,idx)}}</div>
+              <div class="pop-up-container">
+                <div :class="popUpVisibilityClass(idx)">
+                  <ul>
+                    <li @click="deleteMessage(currentIndex,idx)">Delete Message</li>
+                    <li>Message Info</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <!-- conversations section -->
@@ -103,6 +111,7 @@
           <!-- main section -->
       </div>
     </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

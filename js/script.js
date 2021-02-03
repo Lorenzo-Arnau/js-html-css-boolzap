@@ -1,12 +1,14 @@
-var todayTime = new Date();
-var hour = todayTime.toLocaleString();
+var todayTime = new Date().toLocaleString();
 var app = new Vue({
  el: '#root',
  data:{
+   lastMessageBool : true,
+   popIndex : false,
+   lastMessageRead: '',
    searchResult: '',
    notify : false,
    notifyStatus:'Attiva',
-   sentTime: hour,
+   sentTime: todayTime,
    selected : 'Michele',
    selectedPic :'_1',
    lastAccessDate :'10/01/2020',
@@ -98,8 +100,6 @@ var app = new Vue({
           ],
           },
           ]
-
-
  },
  methods:{
     selectedUser : function(i) {
@@ -119,6 +119,8 @@ var app = new Vue({
         text: message,
         status: status,
       })
+      this.lastMessageRead = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].text;
+      console.log(this.lastMessageRead);
       console.log(this.sentTime);
       this.newMessage = '';
     },
@@ -126,7 +128,19 @@ var app = new Vue({
       let that = this;
       var lastTimeChange = this.sentTime.split(' ')[1].split(':',2);
       setTimeout(function() {
-        that.addMessage('ok','received')
+        switch (that.lastMessageRead.toLowerCase()) {
+          case 'ciao':
+            that.addMessage('ciao a te simpatico utente!','received')
+            break;
+          case 'come stai?':
+            that.addMessage('alla grande! Devo scappare ci sentiamo dopo!','received')
+            break;
+          case 'easter egg':
+            that.addMessage('Lo hai trovato finalmente!','received')
+            break;
+          default:
+            that.addMessage('non posso risponderti adesso..ti scrivo dopo!','received')
+        }
         that.lastAccessTime = lastTimeChange[0] +':'+ lastTimeChange[1];
       }, 1500);
     },
@@ -135,7 +149,8 @@ var app = new Vue({
         return createdDate[0] +':'+ createdDate[1];
     },
     lastMessage : function(index){
-      return  this.contacts[index].messages[this.contacts[index].messages.length - 1].text;
+      let thisText = this.contacts[index].messages[this.contacts[index].messages.length - 1];
+        return thisText.text;
     },
     changeNotify : function(){
       if (this.notify === false) {
@@ -147,10 +162,31 @@ var app = new Vue({
       }
       return this.notify
     },
-    search : function(){
-      console.log(this.searchResult);
-    },
+   search : function(index){
+     if ( index.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) && this.searchResult != '') {
+       return true
+     }
+   },
+   popUpOpen :function (index) {
+     this.popIndex = index;
+   },
+   popUpClose : function() {
+      this.popIndex = false;
+   },
+   popUpVisibilityClass: function(index) {
+     if(index === this.popIndex) {
+       return 'pop-up active'
+     }
+      return 'pop-up'
+   },
+   deleteMessage:function(currentIndex,idx){
+     var messageList = this.contacts[currentIndex].messages;
+     console.log(idx);
+     Vue.delete(messageList,idx);
+     if (messageList.length <= 0) {
+       this.lastMessageBool = false;
+     }
+   },
  },
 });
-
 Vue.config.devtools = true;

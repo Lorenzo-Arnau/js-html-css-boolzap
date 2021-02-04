@@ -8,6 +8,12 @@
 .flex{
   display: flex;
 }
+.bkg-light-grey{
+  background-color:#EAEAEA;
+}
+.txt-grey{
+  color: #B1B1B1;
+}
 /*END utility class */
 
 /* Wrapper e contenitore principale */
@@ -49,7 +55,6 @@
 .box-bottom{
   width: 100%;
   height: 70px;
-  background-color:#EAEAEA;
   font-size: 25px;
   justify-content: space-around;
   align-items: center;
@@ -67,9 +72,7 @@
   justify-content: space-between;
   font-size: 20px;
 }
-.profile-box{
-  background-color:#EAEAEA;
-}
+
 .profile-misc,.profile-tools{
   height: 100px;
   width: 60%;
@@ -80,7 +83,6 @@
   justify-content: space-around;
   width: 30%;
   font-size: 25px;
-  color: #B1B1B1;
 }
 .profile-tools i{
   cursor: pointer;
@@ -129,7 +131,6 @@ a{
   height: 50px;
   width: 100%;
   align-items: center;
-  background-color:#EAEAEA;
   justify-content: center;
 }
 .search-bar{
@@ -143,7 +144,6 @@ a{
 }
 .search-box i{
   font-size: 20px;
-  color: #B1B1B1;
   background-color: #fff;
   height: 90%;
   padding-top: 10px;
@@ -176,7 +176,6 @@ a{
   overflow: hidden;
 }
 .usersBox span:nth-child(2),.usersBox span:nth-child(3){
-  color: #B1B1B1;
   font-size: 16px;
 }
 /*END Sezione contatti */
@@ -187,7 +186,6 @@ a{
 .box-top{
   width: 100%;
   height: 100px;
-  background-color:#EAEAEA;
   justify-content: space-between;
 }
 .current-user,.current-tools{
@@ -198,11 +196,7 @@ a{
 .current-tools{
   width: 20%;
   font-size: 25px;
-  color: #B1B1B1;
   justify-content: space-around;
-}
-.current-content span:last-child{
-  color: #B1B1B1;
 }
 /*END contenuto topbar-main */
 
@@ -226,7 +220,6 @@ a{
   margin-left: 50px;
 }
 .messageHour{
-  color: #B1B1B1;
   align-self: flex-end;
 }
 .pop-up-container{

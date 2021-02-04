@@ -142,7 +142,7 @@ let app = new Vue({
           that.lastAccessTime = lastTimeChange[0] +':'+ lastTimeChange[1];
         }, 1500);
       },
-      createDate : function(currentIndex,idx){
+      createMsgDate : function(currentIndex,idx){
         let createdDate = this.contacts[currentIndex].messages[idx].date.split(' ')[1].split(':',2);
         return createdDate[0] +':'+ createdDate[1];
       },
@@ -164,6 +164,7 @@ let app = new Vue({
         }
         return this.notify
       },
+      // TODO: La search function può essere cambiata mettendo Includes al posto di startsWith, per avere risultati più completi
       search : function(index){
         if ( index.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) && this.searchResult != '') {
           return true

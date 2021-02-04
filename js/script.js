@@ -117,7 +117,7 @@ let app = new Vue({
         this.currentIndex = this.contacts.indexOf(i);
         this.selectedPic = i.avatar;
         this.lastAccessDate = '-data non disponibile-';
-        this.lastAccessTime = 'default time';
+        this.lastAccessTime = '-ora non disponibile-';
       }
     },
     addMessage : function(message,status) {

@@ -120,6 +120,10 @@ let app = new Vue({
           status: status,
         })
         this.lastMessageRead = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].text;
+        let messageList = this.contacts[this.currentIndex].messages;
+        if (messageList.length > 0) {
+          this.lastMessageBool = true;
+        }
         this.newMessage = '';
       },
       receivedMessage : function(){
@@ -187,7 +191,6 @@ let app = new Vue({
         Vue.delete(messageList,idx);
         if (messageList.length <= 0) {
           this.lastMessageBool = false;
-          Vue.delete(this.contacts,currentIndex);
         }
       },
     },

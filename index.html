@@ -50,7 +50,7 @@
             <div class="flex usersBox">
               <span>{{contacts[index].name}}</span>
               <span class="txt-grey" v-if="lastMessageBool">{{lastMessage(index)}}</span>
-              <span class="txt-grey">{{lastAccess(index)}}</span>
+              <span v-if="lastMessageBool" class="txt-grey">{{lastAccess(index)}}</span>
             </div>
           </div>
           <div v-for="(i,index) in contacts" v-if="search(i)" class="user flex" @click="selectedUser(i)">
@@ -58,7 +58,7 @@
             <div class="flex usersBox">
               <span>{{contacts[index].name}}</span>
               <span v-if="lastMessageBool">{{lastMessage(index)}}</span>
-              <span>{{lastAccess(index)}}</span>
+              <span v-if="lastMessageBool">{{lastAccess(index)}}</span>
             </div>
           </div>
         </div>
@@ -74,7 +74,8 @@
             <img v-bind:src="'img/avatar' + selectedPic  + '.jpg'" />
             <div class="current-content flex">
               <span>{{selected}}</span> <br>
-              <span class="txt-grey">Ultimo accesso il {{lastAccessDate}} alle ore {{lastAccessTime}}</span>
+              <span v-if="lastMessageBool" class="txt-grey">Ultimo accesso il {{lastAccessDate}} alle ore {{lastAccessTime}}</span>
+              <span v-if="lastMessageBool === false" class="txt-grey">Ultimo accesso non disponibile</span>
             </div>
           </div>
           <div class="current-tools txt-grey flex">

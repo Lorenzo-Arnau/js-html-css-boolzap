@@ -103,14 +103,22 @@ let app = new Vue({
   },
   methods:{
     selectedUser : function(i) {
-      let lastMessage = i.messages[i.messages.length - 1].date;
-      let dateTimeArray =lastMessage.split(' ');
-      let createdDate = dateTimeArray[1].split(':',2);
-      this.selected = i.name;
-      this.currentIndex = this.contacts.indexOf(i);
-      this.selectedPic = i.avatar;
-      this.lastAccessDate = dateTimeArray[0];
-      this.lastAccessTime = createdDate[0] +':'+ createdDate[1];
+      if (this.lastMessageBool == true) {
+        let lastMessage = i.messages[i.messages.length - 1].date;
+        let dateTimeArray =lastMessage.split(' ');
+        let createdDate = dateTimeArray[1].split(':',2);
+        this.selected = i.name;
+        this.currentIndex = this.contacts.indexOf(i);
+        this.selectedPic = i.avatar;
+        this.lastAccessDate = dateTimeArray[0];
+        this.lastAccessTime = createdDate[0] +':'+ createdDate[1];
+      }else{
+        this.selected = i.name;
+        this.currentIndex = this.contacts.indexOf(i);
+        this.selectedPic = i.avatar;
+        this.lastAccessDate = '-data non disponibile-';
+        this.lastAccessTime = 'default time';
+      }
     },
     addMessage : function(message,status) {
       this.contacts[this.currentIndex].messages = this.contacts[this.currentIndex].messages.concat(
@@ -128,17 +136,25 @@ let app = new Vue({
       },
       receivedMessage : function(){
         let that = this;
+        let caseMessage = that.lastMessageRead.toLowerCase();
+        console.log(caseMessage);
         let lastTimeChange = this.sentTime.split(' ')[1].split(':',2);
         setTimeout(function() {
-          switch (that.lastMessageRead.toLowerCase()) {
-            case 'ciao':
+          switch (true) {
+            case caseMessage.includes('ciao'):
             that.addMessage('ciao a te simpatico utente!','received')
             break;
-            case 'come stai?':
+            case caseMessage.includes('lasciato'):
+            that.addMessage('vedrai che torna..','received')
+            break;
+            case caseMessage.includes('vinto'):
+            that.addMessage('complimenti! non è stata tutta fortuna!','received')
+            break;
+            case caseMessage.includes('come stai'):
             that.addMessage('alla grande! Devo scappare ci sentiamo dopo!','received')
             break;
-            case 'easter egg':
-            that.addMessage('Lo hai trovato finalmente!','received')
+            case caseMessage.includes('easter'):
+            that.addMessage('Lo hai trovato finalmente! Buona pasqua!','received')
             break;
             default:
             that.addMessage('non posso risponderti adesso..ti scrivo dopo!','received')
@@ -152,7 +168,7 @@ let app = new Vue({
       },
       lastMessage : function(index){
         let thisText = this.contacts[index].messages[this.contacts[index].messages.length - 1];
-        return thisText.text;
+          return thisText.text;
       },
       lastAccess : function(index){
         let thisMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].date.split(' ')[1].split(':',2);
@@ -191,6 +207,12 @@ let app = new Vue({
         Vue.delete(messageList,idx);
         if (messageList.length <= 0) {
           this.lastMessageBool = false;
+          messageList.push(
+            {
+              date: ' ',
+              text: ' ',
+              status: ' ',
+            })
         }
       },
     },
